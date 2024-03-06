@@ -1,54 +1,87 @@
 import React from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
-import { Pressable } from "react-native";
+import { Tabs } from "expo-router";
+import { StyleSheet } from "react-native";
+import { Entypo, Feather } from "@expo/vector-icons";
 
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@components/useColorScheme";
 import { useClientOnlyValue } from "@components/useClientOnlyValue";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={20} style={{ marginBottom: -3 }} {...props} />;
-}
+// function TabBarIcon(props: {
+//   name: React.ComponentProps<typeof FontAwesome>["name"];
+//   color: string;
+// }) {
+//   return <FontAwesome size={20} style={{ marginTop: 8 }} {...props} />;
+// }
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.light.background,
-        tabBarInactiveTintColor: "lightgrey",
+        tabBarActiveTintColor: Colors.dark.tint,
+        tabBarInactiveTintColor: Colors.light.tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
-        tabBarStyle: { backgroundColor: "blue" },
+        tabBarLabelStyle: { fontSize: 11, fontFamily: "Lato-Regular" },
       }}
     >
       <Tabs.Screen name="index" options={{ href: null }} />
 
       <Tabs.Screen
         name="menu"
+        //change
         options={{
-          title: "Menu",
+          title: "Home",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="cutlery" color={color} />
+            <Entypo
+              name="home"
+              style={styles.tabBarIcon}
+              size={25}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        //change
+        options={{
+          title: "Search",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Feather
+              name="search"
+              style={styles.tabBarIcon}
+              size={25}
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
         name="orders"
         options={{
-          title: "Orders",
+          title: "Your List",
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Feather
+              name="list"
+              style={styles.tabBarIcon}
+              size={25}
+              color={color}
+            />
+          ),
         }}
       />
     </Tabs>
   );
 }
+const styles = StyleSheet.create({
+  tabBarIcon: {
+    marginTop: 8,
+  },
+});
