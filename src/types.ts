@@ -1,3 +1,18 @@
+export type Posts = {
+  id: number;
+  name: string;
+  image: string | null;
+};
+
+export type Lists = {
+  id: number;
+  total: number;
+  name: string;
+
+  posts?: Posts[];
+};
+
+// OLD
 export type Product = {
   id: number;
   image: string | null;
@@ -5,7 +20,7 @@ export type Product = {
   price: number;
 };
 
-export type PizzaSize = 'S' | 'M' | 'L' | 'XL';
+export type PizzaSize = "S" | "M" | "L" | "XL";
 
 export type CartItem = {
   id: string;
@@ -16,13 +31,13 @@ export type CartItem = {
 };
 
 export const OrderStatusList: OrderStatus[] = [
-  'New',
-  'Cooking',
-  'Delivering',
-  'Delivered',
+  "New",
+  "Cooking",
+  "Delivering",
+  "Delivered",
 ];
 
-export type OrderStatus = 'New' | 'Cooking' | 'Delivering' | 'Delivered';
+export type OrderStatus = "New" | "Cooking" | "Delivering" | "Delivered";
 
 export type Order = {
   id: number;
