@@ -31,7 +31,7 @@ export default function TabLayout() {
       <Tabs.Screen name="index" options={{ href: null }} />
 
       <Tabs.Screen
-        name="menu"
+        name="home"
         //change
         options={{
           title: "Home",
@@ -63,7 +63,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="orders"
+        name="yourList"
         options={{
           title: "Your List",
           headerShown: false,
