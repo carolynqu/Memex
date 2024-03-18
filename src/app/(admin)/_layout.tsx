@@ -32,7 +32,6 @@ export default function TabLayout() {
 
       <Tabs.Screen
         name="home"
-        //change
         options={{
           title: "Home",
           headerShown: false,
@@ -48,7 +47,6 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="search"
-        //change
         options={{
           title: "Search",
           headerShown: false,

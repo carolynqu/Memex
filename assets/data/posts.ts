@@ -20,7 +20,7 @@ const posts = [
     id: 4,
     name: "Sweden Airbnb",
     image:
-      "https://mediacloud-scandi.s3-accelerate.amazonaws.com/2019/11/Airbnb-Copenhagen-The-Best-Copenhagen-Airbnbs-in-Every-Neighborhood-Scandinavia-Standard-2.jpg",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpdXvVsq-L_6SaSbUlqInI_umjXHaJBTOX9YLtrBqQJhLQL1iG_tUqStdlierI7OlGhrU3z8Loy5WOvw5-u0NCRvZQslMmLfvqgr2esHHFrShc6ikTMsIstH59dtHB9_-IAReuVKRXRYywHkEmIvfop4YWDU-dQ2c1HRYl8ptOSuaIRya2wdIjw-TO/s750/Swedish%20cottage%20airbnb-5.jpg",
   },
 ];
 

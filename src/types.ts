@@ -8,6 +8,7 @@ export type Lists = {
   id: number;
   total: number;
   name: string;
+  image: string | null;
 
   posts?: Posts[];
 };
