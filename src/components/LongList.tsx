@@ -19,79 +19,54 @@ const LongList = ({ item }: LongListItemProps) => {
       href={`/${segments[0]}/yourList/${item.id}`}
       asChild
     >
-      <View style={[styles.longList, styles.longFlexBox]}>
-        <View style={[styles.thumbnailLongParent, styles.longFlexBox]}>
-          <Image
-            style={styles.thumbnailLongIcon}
-            contentFit="cover"
-            source={require("../assets/thumbnail-long.png")}
-          />
-          <View style={styles.textLong}>
-            <Text style={styles.saved}>25 saved</Text>
-            <Text style={styles.ddddff}>ddddff</Text>
-          </View>
-        </View>
+      <Pressable>
         <Image
-          style={styles.vectorIcon}
-          contentFit="cover"
-          source={require("../assets/vector.png")}
+          source={{ uri: item.image || defaultPizzaImage }}
+          style={styles.image}
+          resizeMode="cover"
         />
-      </View>
+        <View style={styles.subtitleContainer}>
+          <Text style={styles.title}>{item.name}</Text>
+          <Text style={styles.subTitle}>{item.total} saved</Text>
+        </View>
+        <Feather name="star" style={styles.iconStyle} size={20} />
+      </Pressable>
     </Link>
   );
 };
 
 const styles = StyleSheet.create({
-  longFlexBox: {
-    alignItems: "center",
+  container: {
+    backgroundColor: "white",
+    borderRadius: 2,
+    flex: 1,
     flexDirection: "row",
-    overflow: "hidden",
+    alignItems: "center",
+    marginHorizontal: 5,
   },
-  thumbnailLongIcon: {
+  image: {
     width: 55,
-    height: 55,
+    aspectRatio: 1,
+    alignSelf: "center",
+    borderRadius: 2,
   },
-  saved: {
-    top: 22,
-    left: 0,
-    fontSize: 10,
-    fontWeight: "500",
-    fontFamily: FontFamily.latoLight,
-    color: "#9c9c9c",
-    textAlign: "center",
-    position: "absolute",
-  },
-  ddddff: {
-    top: 0,
-    right: 0,
+  title: {
+    fontFamily: "Lato-Regular",
     fontSize: 16,
-    textTransform: "capitalize",
-    fontWeight: "600",
-    fontFamily: FontFamily.latoBold,
-    color: "#000",
-    textAlign: "left",
-    position: "absolute",
+    marginBottom: 3,
   },
-  textLong: {
-    width: 50,
-    height: 34,
+  subtitleContainer: {
+    flex: 1,
     marginLeft: 10,
   },
-  thumbnailLongParent: {
-    width: 326,
-    height: 55,
+  subTitle: {
+    color: Colors.light.tint,
+    fontFamily: "Lato-Regular",
+    fontSize: 12,
   },
-  vectorIcon: {
-    width: 20,
-    height: 20,
-    marginLeft: 5,
-  },
-  longList: {
-    borderRadius: 2,
-    backgroundColor: "#fff",
-    flex: 1,
-    width: "100%",
-    paddingRight: 10,
+  iconStyle: {
+    marginRight: 10,
+    color: Colors.light.tint,
   },
 });
 
