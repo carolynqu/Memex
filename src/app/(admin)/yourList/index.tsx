@@ -5,7 +5,7 @@ import Sizes from "@/constants/Sizes";
 
 export default function yourList() {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={lists}
         renderItem={({ item }) => <LongList item={item} />}

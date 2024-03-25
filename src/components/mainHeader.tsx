@@ -1,22 +1,16 @@
-import { Feather } from "@expo/vector-icons";
-import { Stack } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
-import Sizes from "../../../constants/Sizes";
-import mainHeader from "@/components/mainHeader";
+import React from "react";
+import Sizes from "@/constants/Sizes";
+import { Feather } from "@expo/vector-icons";
 
-export default function MenuStack() {
+const mainHeader = () => {
   return (
-    <Stack>
-      <Stack.Screen
-        name="index"
-        options={{
-          title: "Your List",
-          header: (props) => mainHeader(),
-        }}
-      />
-    </Stack>
+    <View style={styles.container}>
+      <Text style={styles.headerTitle}>Your Lists</Text>
+      <Feather name="menu" size={25} />
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -31,3 +25,5 @@ const styles = StyleSheet.create({
   },
   headerTitle: { fontFamily: "Lato-Black", fontSize: 30 },
 });
+
+export default mainHeader;

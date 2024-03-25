@@ -1,27 +1,38 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
 import Colors from "../constants/Colors";
 import { Posts } from "../types";
 import { defaultPizzaImage } from "./ProductListItem";
 import { Feather } from "@expo/vector-icons";
+import LongList from "./LongList";
+import { Link, useSegments } from "expo-router";
 
 type PostListItemProps = {
   item: Posts;
 };
 
 const PostList = ({ item }: PostListItemProps) => {
+  const segments = useSegments();
+
   return (
-    <View style={styles.container}>
-      <Image
-        source={{ uri: item.image || defaultPizzaImage }}
-        style={styles.image}
-        resizeMode="cover"
-      />
-      <View style={{ flex: 1 }}>
-        <Text style={styles.title}>{item.name}</Text>
-      </View>
-      <Feather name="more-horizontal" style={styles.iconStyle} size={20} />
-    </View>
+    <Link
+      style={styles.container}
+      href={`/${segments[0]}/yourList/${item.id}`}
+      asChild
+    >
+      <Pressable>
+        <Image
+          source={{ uri: item.image || defaultPizzaImage }}
+          style={styles.image}
+          resizeMode="cover"
+        />
+        <View style={styles.subtitleContainer}>
+          <Text style={styles.title}>{item.name}</Text>
+          <Text style={styles.subTitle}>description</Text>
+        </View>
+        <Feather name="more-horizontal" style={styles.iconStyle} size={20} />
+      </Pressable>
+    </Link>
   );
 };
 
@@ -32,12 +43,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
+    marginHorizontal: 5,
   },
   image: {
     width: 55,
     aspectRatio: 1,
     alignSelf: "center",
-    marginRight: 10,
     borderRadius: 2,
   },
   title: {
@@ -46,8 +57,8 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   subtitleContainer: {
-    flexDirection: "row",
-    gap: 5,
+    flex: 1,
+    marginLeft: 10,
   },
   subTitle: {
     color: Colors.light.tint,
@@ -55,7 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   iconStyle: {
-    marginRight: 10,
+    color: Colors.light.tint,
   },
 });
 
