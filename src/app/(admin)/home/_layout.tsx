@@ -1,3 +1,4 @@
+import mainHeader from "@/components/mainHeader";
 import Colors from "@/constants/Colors";
 import { FontAwesome } from "@expo/vector-icons";
 import { Link, Stack } from "expo-router";
@@ -10,20 +11,7 @@ export default function MenuStack() {
         name="index"
         options={{
           title: "Menu",
-          // headerRight: () => (
-          //   <Link href="/(admin)/menu/create" asChild>
-          //     <Pressable>
-          //       {({ pressed }) => (
-          //         <FontAwesome
-          //           name="plus-square-o"
-          //           size={25}
-          //           color={Colors.light.tint}
-          //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-          //         />
-          //       )}
-          //     </Pressable>
-          //   </Link>
-          // ),
+          header: (props) => mainHeader({ title: "For You" }),
         }}
       />
     </Stack>

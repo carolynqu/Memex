@@ -3,10 +3,11 @@ import React from "react";
 import Sizes from "@/constants/Sizes";
 import { Feather } from "@expo/vector-icons";
 
-const mainHeader = () => {
+type mainHeaderProps = { title: string };
+const mainHeader = ({ title }: mainHeaderProps) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.headerTitle}>Your Lists</Text>
+      <Text style={styles.headerTitle}>{title}</Text>
       <Feather name="menu" size={25} />
     </View>
   );
