@@ -1,6 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
+import Sizes from "../../../constants/Sizes";
 
 export default function MenuStack() {
   return (
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     height: 125,
     paddingTop: 72,
-    paddingHorizontal: 20,
+    paddingHorizontal: Sizes.horizontalPadding,
     width: "100%",
     overflow: "hidden",
     flexDirection: "row",

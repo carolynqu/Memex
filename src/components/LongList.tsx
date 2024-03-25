@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   iconStyle: {
-    marginRight: 10,
     color: Colors.light.tint,
   },
 });
