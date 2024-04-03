@@ -5,6 +5,7 @@ export type Posts = {
 };
 
 export type Lists = {
+  toLowerCase(): unknown;
   id: number;
   total: number;
   name: string;
