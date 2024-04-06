@@ -1,4 +1,3 @@
-import Sizes from "@/constants/Sizes";
 import { StyleSheet } from "react-native";
 import Colors from "./Colors";
 

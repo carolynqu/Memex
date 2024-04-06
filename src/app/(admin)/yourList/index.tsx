@@ -11,8 +11,7 @@ export default function yourList() {
         renderItem={({ item }) => <LongList item={item} />}
         contentContainerStyle={{
           paddingHorizontal: Sizes.horizontalPadding,
-          paddingTop: 8,
-          gap: 8,
+          gap: Sizes.listGap,
         }}
       />
     </View>

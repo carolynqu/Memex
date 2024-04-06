@@ -11,18 +11,26 @@ import Colors from "@/constants/Colors";
 // SearchComponent definition
 const SearchComponent = () => {
   const [query, setQuery] = useState("");
-  const [filteredLists, setFilteredLists] = useState<Lists[]>(lists);
+  const [results, setResults] = useState<
+    (Lists | (Posts & { isList?: boolean }))[]
+  >([]);
 
   const handleSearch = (text: string) => {
     setQuery(text);
     if (!text.trim()) {
-      setFilteredLists(lists);
+      setResults([]);
       return;
     }
-    const filtered = lists.filter((list) =>
-      list.name.toLowerCase().includes(text.toLowerCase()),
+
+    const filteredLists = lists
+      .filter((list) => list.name.toLowerCase().includes(text.toLowerCase()))
+      .map((list) => ({ ...list, isList: true }));
+
+    const filteredPosts = posts.filter((post) =>
+      post.name.toLowerCase().includes(text.toLowerCase()),
     );
-    setFilteredLists(filtered);
+
+    setResults([...filteredLists, ...filteredPosts]);
   };
   return (
     <View style={styles.container}>
@@ -32,12 +40,15 @@ const SearchComponent = () => {
         value={query}
         onChangeText={handleSearch}
       />
+      {/* make this into another page */}
       <FlatList
-        data={filteredLists}
-        style={styles.list}
-        keyExtractor={(item) => item.id.toString()}
+        data={results}
+        keyExtractor={(item, index) => item.id.toString() + index}
         renderItem={({ item }) => (
-          <Text style={styles.listItem}>{item.name}</Text>
+          <Text style={styles.listItem}>
+            {(item as Posts & { isList?: boolean }).isList ? "⭐ " : ""}
+            {item.name}
+          </Text>
         )}
       />
     </View>

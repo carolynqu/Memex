@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import React from "react";
-import Button from "../components/Button";
+import Button from "../components/notUsed/Button";
 import { Link } from "expo-router";
 import { useCallback } from "react";
 
@@ -23,8 +23,8 @@ const index = () => {
     "Lato-Medium": require("../../assets/fonts/Lato-Medium.ttf"),
     "Lato-MediumItalic": require("../../assets/fonts/Lato-MediumItalic.ttf"),
     "Lato-Regular": require("../../assets/fonts/Lato-Regular.ttf"),
-    "Lato-SemiBold": require("../../assets/fonts/Lato-SemiBold.ttf"),
-    "Lato-SemiBoldItalic": require("../../assets/fonts/Lato-SemiBoldItalic.ttf"),
+    "Lato-SemiBold": require("../../assets/fonts/Lato-Semibold.ttf"),
+    "Lato-SemiBoldItalic": require("../../assets/fonts/Lato-SemiboldItalic.ttf"),
     "Lato-Thin": require("../../assets/fonts/Lato-Thin.ttf"),
     "Lato-ThinItalic": require("../../assets/fonts/Lato-ThinItalic.ttf"),
   });

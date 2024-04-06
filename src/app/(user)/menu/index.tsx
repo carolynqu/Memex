@@ -1,7 +1,7 @@
 import { View, FlatList } from "react-native";
 
 import products from "@assets/data/products";
-import ProductListItem from "@components/ProductListItem";
+import ProductListItem from "@/components/notUsed/ProductListItem";
 
 export default function menu() {
   return (

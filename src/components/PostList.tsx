@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
 import Colors from "../constants/Colors";
 import { Posts } from "../types";
-import { defaultPizzaImage } from "./ProductListItem";
+import { defaultPizzaImage } from "./notUsed/ProductListItem";
 import { Feather } from "@expo/vector-icons";
 import LongList from "./LongList";
 import { Link, useSegments } from "expo-router";
