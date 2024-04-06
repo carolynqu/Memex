@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
 import Colors from "../constants/Colors";
 import { Lists } from "../types";
-import { defaultPizzaImage } from "./notUsed/ProductListItem";
 import { Feather } from "@expo/vector-icons";
 import { Link, useSegments } from "expo-router";
 
@@ -21,7 +20,7 @@ const SuggestedList = ({ item }: LongListItemProps) => {
     // >
     <Pressable style={styles.textContainer}>
       <Image
-        source={{ uri: item.image || defaultPizzaImage }}
+        source={{ uri: item.image || "" }}
         style={styles.image}
         resizeMode="cover"
       />

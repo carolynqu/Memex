@@ -1,7 +1,6 @@
 import { View, FlatList, Text, StyleSheet, Image } from "react-native";
 
 import products from "@assets/data/products";
-import ProductListItem from "@/components/notUsed/ProductListItem";
 import Sizes from "@/constants/Sizes";
 import { globalTextStyles } from "@/constants/globalTextStyles";
 

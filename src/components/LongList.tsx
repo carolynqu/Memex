@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
 import Colors from "../constants/Colors";
 import { Lists } from "../types";
-import { defaultPizzaImage } from "./notUsed/ProductListItem";
 import { Feather } from "@expo/vector-icons";
 import { Link, useSegments } from "expo-router";
 
@@ -11,17 +10,11 @@ type LongListItemProps = {
 };
 
 const LongList = ({ item }: LongListItemProps) => {
-  const segments = useSegments();
-
   return (
-    <Link
-      style={styles.container}
-      href={`/${segments[0]}/yourList/${item.id}`}
-      asChild
-    >
+    <Link style={styles.container} href={`/yourList/${item.id}`} asChild>
       <Pressable>
         <Image
-          source={{ uri: item.image || defaultPizzaImage }}
+          source={{ uri: item.image || "" }}
           style={styles.image}
           resizeMode="cover"
         />
