@@ -11,7 +11,8 @@ export default function MenuStack() {
         name="index"
         options={{
           title: "Your List",
-          header: (props) => mainHeader({ title: "Your List" }),
+          header: (props) =>
+            mainHeader({ title: "Your List", iconName: "menu" }),
         }}
       />
     </Stack>

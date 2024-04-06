@@ -4,14 +4,14 @@ import { FontAwesome } from "@expo/vector-icons";
 import { Link, Stack } from "expo-router";
 import { Pressable } from "react-native";
 
-export default function MenuStack() {
+export default function HomeStack() {
   return (
     <Stack>
       <Stack.Screen
         name="index"
         options={{
-          title: "Menu",
-          header: (props) => mainHeader({ title: "For You" }),
+          title: "Home",
+          header: (props) => mainHeader({ title: "For You", iconName: "menu" }),
         }}
       />
     </Stack>

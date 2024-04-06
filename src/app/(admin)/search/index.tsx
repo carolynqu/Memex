@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { View, TextInput, Text, FlatList, StyleSheet } from "react-native";
 
-import { Lists } from "@/types";
+import { Lists, Posts } from "@/types";
 import lists from "@assets/data/lists";
+import posts from "@assets/data/posts";
+
+import Sizes from "@/constants/Sizes";
+import Colors from "@/constants/Colors";
 
 // SearchComponent definition
 const SearchComponent = () => {
@@ -30,6 +34,7 @@ const SearchComponent = () => {
       />
       <FlatList
         data={filteredLists}
+        style={styles.list}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <Text style={styles.listItem}>{item.name}</Text>
@@ -40,19 +45,24 @@ const SearchComponent = () => {
 };
 const styles = StyleSheet.create({
   container: {
+    marginHorizontal: Sizes.horizontalPadding,
     flex: 1,
-    marginTop: 20,
   },
   searchBar: {
-    fontSize: 18,
+    fontSize: 16,
+    fontFamily: "Lato-Regular",
+    color: Colors.light.darkGray,
     padding: 10,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 20,
+    backgroundColor: Colors.light.lightGray,
+    borderRadius: 5,
+  },
+  list: {
+    padding: 10,
   },
   listItem: {
-    fontSize: 18,
-    padding: 10,
+    fontSize: 16,
+    fontFamily: "Lato-Regular",
+    padding: 5,
   },
 });
 

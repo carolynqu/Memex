@@ -8,7 +8,8 @@ export default function MenuStack() {
         name="index"
         options={{
           title: "Search",
-          header: (props) => mainHeader({ title: "Search" }),
+          header: (props) =>
+            mainHeader({ title: "Search", iconName: "search" }),
         }}
       />
     </Stack>
