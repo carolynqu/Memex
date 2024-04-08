@@ -7,7 +7,7 @@ const lists: Lists[] = [
     name: "New Zealand",
     total: 2,
     image:
-      "https://a.storyblok.com/f/95452/4256x2832/83fe0c7da6/new-zealand-fiordland-national-park-lake-marian.jpg",
+      "https://media.istockphoto.com/id/1343234215/photo/young-asian-couple-celebrating-success-at-roys-peak-lake-wanaka-new-zealand.jpg?s=612x612&w=0&k=20&c=gZ8CuxuvDps2N4p6DZkIUeaZT4VBiNjFwH8EuYc7SHA=",
     posts: [posts[0], posts[1]],
   },
   {
