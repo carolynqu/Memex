@@ -1,56 +1,54 @@
 import React, { useState } from "react";
-import { View, TextInput, Text, FlatList, StyleSheet } from "react-native";
-
-import { Lists, Posts } from "@/types";
-import lists from "@assets/data/lists";
-import posts from "@assets/data/posts";
-
+import {
+  View,
+  TextInput,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import Sizes from "@/constants/Sizes";
 import Colors from "@/constants/Colors";
+import { Link } from "expo-router";
+import SearchBar from "@/components/searchBar";
+import Tags from "@/components/tags";
+import lists from "@assets/data/lists";
+import LongList from "@/components/LongList";
+
+import { globalTextStyles } from "@/constants/globalTextStyles";
 
 // SearchComponent definition
 const SearchComponent = () => {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState<
-    (Lists | (Posts & { isList?: boolean }))[]
-  >([]);
-
-  const handleSearch = (text: string) => {
-    setQuery(text);
-    if (!text.trim()) {
-      setResults([]);
-      return;
-    }
-
-    const filteredLists = lists
-      .filter((list) => list.name.toLowerCase().includes(text.toLowerCase()))
-      .map((list) => ({ ...list, isList: true }));
-
-    const filteredPosts = posts.filter((post) =>
-      post.name.toLowerCase().includes(text.toLowerCase()),
-    );
-
-    setResults([...filteredLists, ...filteredPosts]);
-  };
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.searchBar}
-        placeholder="Search Lists"
-        value={query}
-        onChangeText={handleSearch}
-      />
-      {/* make this into another page */}
-      <FlatList
-        data={results}
-        keyExtractor={(item, index) => item.id.toString() + index}
-        renderItem={({ item }) => (
-          <Text style={styles.listItem}>
-            {(item as Posts & { isList?: boolean }).isList ? "⭐ " : ""}
-            {item.name}
-          </Text>
-        )}
-      />
+      <Link href={`/(tabs)/search/searchPage`} asChild>
+        <Pressable>
+          {/* Not the best way to do this */}
+          <Text style={styles.searchBar}> Search Lists </Text>
+        </Pressable>
+      </Link>
+      <View style={styles.searchTagContainer}>
+        <Text style={globalTextStyles.subHeaders}>Search Using Tags</Text>
+        <FlatList
+          data={["Popular", "Trending", "Recommended", "New", "Top", "Recent"]}
+          renderItem={({ item }) => <Tags label={item} />}
+          horizontal
+          contentContainerStyle={{
+            gap: Sizes.listGap,
+          }}
+        ></FlatList>
+      </View>
+      <View style={styles.searchTagContainer}>
+        <Text style={globalTextStyles.subHeaders}>Frequently Used Lists</Text>
+        <FlatList
+          data={lists}
+          renderItem={({ item }) => <LongList item={item} />}
+          contentContainerStyle={{
+            gap: Sizes.listGap,
+          }}
+        />
+      </View>
     </View>
   );
 };
@@ -67,13 +65,15 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.lightGray,
     borderRadius: 5,
   },
-  list: {
-    padding: 10,
+  searchTagContainer: {
+    paddingTop: Sizes.containerGap,
+    gap: Sizes.containerGap,
+    flexDirection: "column",
   },
-  listItem: {
-    fontSize: 16,
-    fontFamily: "Lato-Regular",
-    padding: 5,
+  tagList: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: Sizes.listGap,
   },
 });
 
