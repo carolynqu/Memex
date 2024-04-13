@@ -1,25 +1,11 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Pressable,
-  TouchableOpacity,
-  Image,
-  Button,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
-import lists from "@assets/data/lists";
 import posts from "@assets/data/posts";
-import { OrderStatusList } from "@/types";
-import Colors from "@/constants/Colors";
 import { useNavigation } from "@react-navigation/native";
 
-import PostList from "@/components/PostList";
 import Sizes from "@/constants/Sizes";
 import { smallHeaderStyles } from "@/constants/smallHeaderStyles";
 import { Feather } from "@expo/vector-icons";
-import { Link } from "expo-router";
 
 const postInfoPage = () => {
   const { id } = useLocalSearchParams();
