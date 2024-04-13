@@ -1,7 +1,10 @@
 export type Posts = {
   id: number;
   name: string;
+  description: string | null;
+  link: string | null;
   image: string | null;
+  personalNote: string | null;
 };
 
 export type Lists = {

@@ -14,7 +14,11 @@ const PostList = ({ item }: PostListItemProps) => {
   const segments = useSegments();
 
   return (
-    <Link style={styles.container} href={`/yourList/${item.id}`} asChild>
+    <Link
+      style={styles.container}
+      href={`/yourList/postInfoPage?id=${item.id}`}
+      asChild
+    >
       <Pressable>
         <Image
           source={{ uri: item.image || "" }}
@@ -23,7 +27,9 @@ const PostList = ({ item }: PostListItemProps) => {
         />
         <View style={styles.subtitleContainer}>
           <Text style={styles.title}>{item.name}</Text>
-          <Text style={styles.subTitle}>description</Text>
+          <Text numberOfLines={1} ellipsizeMode="tail" style={styles.subTitle}>
+            {item.description}
+          </Text>
         </View>
         <Feather name="more-horizontal" style={styles.iconStyle} size={20} />
       </Pressable>
@@ -59,6 +65,7 @@ const styles = StyleSheet.create({
     color: Colors.light.tint,
     fontFamily: "Lato-Regular",
     fontSize: 12,
+    overflow: "hidden",
   },
   iconStyle: {
     color: Colors.light.tint,
