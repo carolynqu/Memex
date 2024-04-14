@@ -2,6 +2,7 @@ import { View, FlatList } from "react-native";
 import lists from "@assets/data/lists";
 import LongList from "@/components/LongList";
 import Sizes from "@/constants/Sizes";
+import createButton from "@/components/createButton";
 
 export default function yourList() {
   return (
@@ -14,6 +15,7 @@ export default function yourList() {
           gap: Sizes.listGap,
         }}
       />
+      {createButton()}
     </View>
   );
 }
